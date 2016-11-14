@@ -1,7 +1,7 @@
 var esrever = require('esrever');
 
 exports.onMessageReceived = (function Version(bot, doc, user, userID, channelID, message, event) {
-    require('./../Onebot.js').registerCmd('reverse <message>', 'Reverses the given message.');
+    require('./../Onebot.js').registerCmd('help', 'Lists commands that Onebot can use.');
     if(message === undefined){
         return;
     }
