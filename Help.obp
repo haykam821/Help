@@ -9,9 +9,10 @@ exports.onMessageReceived = (function Version(bot, doc, user, userID, channelID,
         var list1 = require('./../Onebot.js').syntaxes;
         var list2 = require('./../Onebot.js').descriptions;
         var stringList = "";
-        for (var i = 0; i < list1.length; i++) {
+        for (var i = 1; i < list1.length; i++) {
             stringList += "* " + doc.prefix + list1[i] + ": " + list2[i] + "\n";
         };
+        console.log(stringList)
         var serverCount = stringList.split(/\r\n|\r|\n/).length - 1;
         var rating = serverCount > 14 ? "!" : "."
         bot.sendMessage({
