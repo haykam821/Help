@@ -4,7 +4,7 @@ exports.onMessageReceived = (function Version(bot, doc, user, userID, channelID,
     if(message === undefined){
         return;
     }
-    if (message === "*help") {
+    if (message === doc.prefix + "help") {
         var list1 = require('./../Onebot.js').syntaxes;
         var list2 = require('./../Onebot.js').descriptions;
         var stringList = "";
