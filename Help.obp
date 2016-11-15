@@ -1,12 +1,12 @@
 exports.onMessageReceived = (function Version(bot, doc, user, userID, channelID, message, event) {
     require('./../Onebot.js').registerCmd('help', 'Lists commands that Onebot can use.');
     require('./../Onebot.js').registerCmd('purgehelp', 'Clears the list of commands.');
-    if(message === undefined){
+    if (message === undefined) {
         return;
     }
     if (message === doc.prefix + "purgehelp")
         require('./../Onebot.js').syntaxes = [""];
-        require('./../Onebot.js').descriptions = [""];
+    require('./../Onebot.js').descriptions = [""];
     if (message === doc.prefix + "help") {
         var list1 = require('./../Onebot.js').syntaxes;
         var list2 = require('./../Onebot.js').descriptions;
@@ -26,5 +26,4 @@ exports.onMessageReceived = (function Version(bot, doc, user, userID, channelID,
             message: "Here are my commands:\n```" + stringList + "```\n I have " + serverCount + " commands in total" + rating
         });
     }
-
 });
