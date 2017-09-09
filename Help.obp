@@ -1,15 +1,17 @@
+var onebot = require('./../Onebot.js');
+
 exports.onMessageReceived = (function Version(bot, doc, user, userID, channelID, message, event) {
-    require('./../Onebot.js').registerCmd('help', 'Lists commands that Onebot can use.');
-    require('./../Onebot.js').registerCmd('purgehelp', 'Clears the list of commands.');
+    onebot.registerCmd('help', 'Lists commands that Onebot can use.');
+    onebot.registerCmd('purgehelp', 'Clears the list of commands.');
     if (message === undefined) {
         return;
     }
     if (message === doc.prefix + "purgehelp")
-        require('./../Onebot.js').syntaxes = [""];
-    require('./../Onebot.js').descriptions = [""];
+        onebot.syntaxes = [""];
+    onebot.descriptions = [""];
     if (message === doc.prefix + "help") {
-        var list1 = require('./../Onebot.js').syntaxes;
-        var list2 = require('./../Onebot.js').descriptions;
+        var list1 = onebot.syntaxes;
+        var list2 = onebot.descriptions;
         var stringList = "";
         for (var i = 1; i < list1.length; i++) {
             stringList += "* " + doc.prefix + list1[i] + ": " + list2[i] + "\n";
