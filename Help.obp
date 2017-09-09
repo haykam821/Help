@@ -1,31 +1,31 @@
 var onebot = require('./../Onebot.js');
 
 exports.onMessageReceived = (function Version(bot, doc, user, userID, channelID, message, event) {
-    onebot.registerCmd('help', 'Lists commands that Onebot can use.');
-    onebot.registerCmd('purgehelp', 'Clears the list of commands.');
-    if (message === undefined) {
-        return;
-    }
-    if (message === doc.prefix + "purgehelp")
-        onebot.syntaxes = [""];
-    onebot.descriptions = [""];
-    if (message === doc.prefix + "help") {
-        var list1 = onebot.syntaxes;
-        var list2 = onebot.descriptions;
-        var stringList = "";
-        for (var i = 1; i < list1.length; i++) {
-            stringList += "* " + doc.prefix + list1[i] + ": " + list2[i] + "\n";
-        };
-        console.log(stringList)
-        var serverCount = stringList.split(/\r\n|\r|\n/).length - 1;
-        var rating = serverCount > 14 ? "!" : "."
-        bot.sendMessage({
-            to: doc.logchannel,
-            message: "<@" + userID + "> checked for all commands (currently " + serverCount + ") the bot can use."
-        });
-        bot.sendMessage({
-            to: channelID,
-            message: "Here are my commands:\n```" + stringList + "```\n I have " + serverCount + " commands in total" + rating
-        });
-    }
+  onebot.registerCmd('help', 'Lists commands that Onebot can use.');
+  onebot.registerCmd('purgehelp', 'Clears the list of commands.');
+  if (message === undefined) {
+    return;
+  }
+  if (message === doc.prefix + "purgehelp")
+    onebot.syntaxes = [""];
+  onebot.descriptions = [""];
+  if (message === doc.prefix + "help") {
+    var list1 = onebot.syntaxes;
+    var list2 = onebot.descriptions;
+    var stringList = "";
+    for (var i = 1; i < list1.length; i++) {
+      stringList += "* " + doc.prefix + list1[i] + ": " + list2[i] + "\n";
+    };
+    console.log(stringList)
+    var serverCount = stringList.split(/\r\n|\r|\n/).length - 1;
+    var rating = serverCount > 14 ? "!" : "."
+    bot.sendMessage({
+      to: doc.logchannel,
+      message: "<@" + userID + "> checked for all commands (currently " + serverCount + ") the bot can use."
+    });
+    bot.sendMessage({
+      to: channelID,
+      message: "Here are my commands:\n```" + stringList + "```\n I have " + serverCount + " commands in total" + rating
+    });
+  }
 });
