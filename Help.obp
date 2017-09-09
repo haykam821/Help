@@ -1,4 +1,4 @@
-var onebot = require('./../Onebot.js');
+var onebot = require('./../exports.js');
 
 exports.onMessageReceived = (function Version(bot, doc, user, userID, channelID, message, event) {
   onebot.registerCmd('help', 'Lists commands that Onebot can use.');
