@@ -15,7 +15,7 @@ exports.onMessageReceived = (function Version(bot, doc, user, userID, channelID,
     var list2 = require('./../exports.js').descriptions;
     var stringList = "";
     for (var i = 1; i < list1.length; i++) {
-      stringList += `* ${doc.prefix + list1[i]}: ${list2[i]}\n`;
+      stringList += `${doc.prefix === '*' ? '-' : '*'} ${doc.prefix + list1[i]}: ${list2[i]}\n`;
     };
     console.log(stringList)
     var serverCount = stringList.split(/\r\n|\r|\n/).length - 1;
