@@ -15,18 +15,18 @@ exports.onMessageReceived = (function Version(bot, doc, user, userID, channelID,
     var list2 = require('./../exports.js').descriptions;
     var stringList = "";
     for (var i = 1; i < list1.length; i++) {
-      stringList += "* " + doc.prefix + list1[i] + ": " + list2[i] + "\n";
+      stringList += `* ${doc.prefix + list1[i]}: ${list2[i]}\n`;
     };
     console.log(stringList)
     var serverCount = stringList.split(/\r\n|\r|\n/).length - 1;
     var rating = serverCount > 14 ? "!" : "."
     bot.sendMessage({
       to: doc.logchannel,
-      message: "<@" + userID + "> checked for all commands (currently " + serverCount + ") the bot can use."
+      message: `<@${userID}> checked for all commands (currently ${serverCount}) the bot can use.`
     });
     bot.sendMessage({
       to: channelID,
-      message: "Here are my commands:\n```" + stringList + "```\n I have " + serverCount + " commands in total" + rating
+      message: `Here are my commands:\n\`\`\`${stringList}\`\`\`\n I have ${serverCount} commands in total${rating}`
     });
   }
 });
