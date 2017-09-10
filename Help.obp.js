@@ -1,8 +1,8 @@
 var doc = require('./../exports.js').config;
 
 exports.onMessageReceived = (function Version(bot, doc, user, userID, channelID, message, event) {
-  require('./../exports.js').registerCmd('help', 'Lists commands that Onebot can use.');
-  require('./../exports.js').registerCmd('purgehelp', 'Clears the list of commands.');
+  require('./../exports.js').registerCmd(['help'], 'Lists commands that Onebot can use.');
+  require('./../exports.js').registerCmd(['purgehelp'], 'Clears the list of commands.');
   if (message === undefined) {
     return;
   }
